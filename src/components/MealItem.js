@@ -15,7 +15,7 @@ function MealItem({item,image,onPress}){
              <Image
                 source={{uri: image}}
                 style={{
-                 width:300,height:150
+                width:300,height:150
                 }}
             /> 
             </View>         

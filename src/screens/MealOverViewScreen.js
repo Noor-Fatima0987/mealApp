@@ -1,6 +1,8 @@
 import MealItem from "../components/MealItem";
-import { MEALS } from "../../data/dummy-data";
+import { MEALS ,CATEGORIES} from "../../data/dummy-data";
 import { View,StyleSheet, FlatList } from "react-native";
+import { useLayoutEffect } from "react";
+
 
 
 function MealOverViewScreen({route,navigation}){
@@ -11,9 +13,19 @@ function MealOverViewScreen({route,navigation}){
      mealItem.categoryIds.includes(mealuniqe)
     );
 
+    useLayoutEffect(()=>{
+      const categoryTitle = CATEGORIES.find((category)=> category.id === mealuniqe).title;
+
+
+    navigation.setOptions({
+      title: categoryTitle
+    });
+  },[mealuniqe, navigation])
+   
+
     function mealDisplay (item){ 
         function ingredients(){
-           navigation.navigate('DetialOfMeal',{categoryId:mealuniqe});
+           navigation.navigate('DetialOfMeal',{mealId:item.item.id});
         };
         return(
            <MealItem
