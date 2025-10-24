@@ -33,7 +33,8 @@ function FavoritesContextProvider({children}){
 
 
 
-    return <FavouritesContext.Provider value={value}>{children}</FavouritesContext.Provider>
+
+    return <FavouritesContext.Provider  value={value}>{children}</FavouritesContext.Provider>
 }
 
 export default FavoritesContextProvider;

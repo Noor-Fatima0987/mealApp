@@ -2,8 +2,7 @@ import { StyleSheet,Text , View ,FlatList } from "react-native";
 import { MEALS } from "../../data/dummy-data";
 import IconButton from "../components/IconButton";
 import { useLayoutEffect ,useContext} from "react";
-import { FavouritesContext } from "../components/favorites-context";
-
+import { FavouritesContext } from '../../store/context/favorites-context';
 import MealDetial from "../components/MealDetial";
 
 function DetialAboutMeal({route,navigation}){
@@ -16,23 +15,23 @@ function DetialAboutMeal({route,navigation}){
     const mealsIsFavorite = favoriteMealsCtx.ids.includes(mealuniqe)
 
 
-  //    function changeFavoriteStatusHandler(){
-  //   if (mealsIsFavorite){
-  //       favoriteMealsCtx.removeFavorite(mealuniqe);
-  //   }else{
-  //       favoriteMealsCtx.addFavorite(mealuniqe);
-  //   }
-  //  }
+    function changeFavoriteStatusHandler(){
+    if (mealsIsFavorite){
+        favoriteMealsCtx.removeFavorite(mealuniqe);
+    }else{
+        favoriteMealsCtx.addFavorite(mealuniqe);
+    }
+    }
 
 
-    // useLayoutEffect(()=>{
-    //   navigation.setOptions({
-    //     headerRight: () =>{
-    //        return <IconButton icon={mealsIsFavorite ? 'star' : 'star-outline'} color="white" onPress={changeFavoriteStatusHandler}/>
-    //     }
-    //   })
-    //  },[navigation, changeFavoriteStatusHandler]
-    // )
+    useLayoutEffect(()=>{
+      navigation.setOptions({
+        headerRight: () =>{
+           return <IconButton icon={mealsIsFavorite ? 'star' : 'star-outline'} color="white" onPress={changeFavoriteStatusHandler}/>
+        }
+      })
+     },[navigation, changeFavoriteStatusHandler]
+    )
 
     function detialDisplay (item){
         return(
