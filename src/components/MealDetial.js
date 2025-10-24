@@ -10,17 +10,17 @@ export default function mealDetails({mealImage,duration, complexity, affordabili
            <Image
                  source={{uri :mealImage}}
                  style={{
-                   width:300,height:150
+                   width:350,height:250
                   }}
             />
           </View>
-        <View style={{ borderBottomColor: 'black',borderBottomWidth: 2,marginBottom:5}}>
+        <View style={{ borderBottomColor: 'black',borderBottomWidth: 2,width:'100%',marginBottom:5}}>
           <Text  style={[styles.detailItem,{fontFamily:'bold',fontSize:24,justifyContent:'center',textAlign:'center'}]}> {id}</Text>
           <Text style={[styles.detailItem, ]}> Duration: {duration}</Text>
           <Text style={[styles.detailItem,]}> Complexity: {complexity}</Text>
           <Text style={[styles.detailItem,{marginBottom:10}]}>Affordability: {affordability}</Text>
         </View>
-        <View style={{ borderBottomColor: 'black',borderBottomWidth: 2,marginBottom:10}}>
+        <View style={{ borderBottomColor: 'black',borderBottomWidth: 2,width:'100%',marginBottom:10}}>
           <Text style={{fontFamily:'bold',fontSize:24,justifyContent:'center',textAlign:'center'}}>Ingredients</Text>
           <View style={{marginBottom:10}}>
             <List data={ingredients}/>
